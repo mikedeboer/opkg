@@ -132,7 +132,7 @@ args_parse(int argc, char *argv[])
 			conf->tmp_dir = xstrdup(optarg);
 			break;
 		case 'v':
-			printf("opkg version %s\n", VERSION);
+			printf("c9pm version %s\n", VERSION);
 			exit(0);
 		case 'V':
 			conf->verbosity = INFO;
@@ -222,7 +222,7 @@ args_parse(int argc, char *argv[])
 static void
 usage()
 {
-	printf("usage: opkg [options...] sub-command [arguments...]\n");
+	printf("usage: c9pm [options...] sub-command [arguments...]\n");
 	printf("where sub-command is one of:\n");
 
 	printf("\nPackage Manipulation:\n");
@@ -265,7 +265,7 @@ usage()
 	printf("\t				2 informative messages\n");
 	printf("\t				3 debug\n");
 	printf("\t				4 debug level 2\n");
-	printf("\t-f <conf_file>		Use <conf_file> as the opkg configuration file\n");
+	printf("\t-f <conf_file>		Use <conf_file> as the c9pm configuration file\n");
 	printf("\t--conf <conf_file>\n");
 	printf("\t--cache <directory>	Use a package cache\n");
 	printf("\t-d <dest_name>		Use <dest_name> as the the root directory for\n");
@@ -286,7 +286,7 @@ usage()
 	printf("\t--force-maintainer	Overwrite preexisting config files\n");
 	printf("\t--force-reinstall	Reinstall package(s)\n");
 	printf("\t--force-overwrite	Overwrite files from other package(s)\n");
-	printf("\t--force-downgrade	Allow opkg to downgrade packages\n");
+	printf("\t--force-downgrade	Allow c9pm to downgrade packages\n");
 	printf("\t--force-space		Disable free space checks\n");
 	printf("\t--force-postinstall	Run postinstall scripts even in offline mode\n");
 	printf("\t--force-remove	Remove package even if prerm script fails\n");
@@ -303,7 +303,7 @@ usage()
 	printf("\n");
 
 	printf(" regexp could be something like 'pkgname*' '*file*' or similar\n");
-	printf(" e.g. opkg info 'libstd*' or opkg search '*libop*' or opkg remove 'libncur*'\n");
+	printf(" e.g. c9pm info 'libstd*' or c9pm search '*libop*' or c9pm remove 'libncur*'\n");
 
 	/* --force-removal-of-essential-packages	Let opkg remove essential packages.
 		Using this option is almost guaranteed to break your system, hence this option
@@ -328,7 +328,7 @@ main(int argc, char *argv[])
 
 	opts = args_parse(argc, argv);
 	if (opts == argc || opts < 0) {
-		fprintf(stderr, "opkg must have one sub-command argument\n");
+		fprintf(stderr, "c9pm must have one sub-command argument\n");
 		usage();
 	}
 
